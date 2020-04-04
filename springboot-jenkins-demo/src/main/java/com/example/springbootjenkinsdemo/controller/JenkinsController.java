@@ -1,5 +1,8 @@
 package com.example.springbootjenkinsdemo.controller;
 
+import com.example.springbootjenkinsdemo.service.ProducerDemoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,8 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JenkinsController {
 
+    @Autowired
+    private ProducerDemoService producerDemoService;
+
     @RequestMapping(value = "/")
-    public String getJenkinsTest(){
-        return "测试jenkins自动化部署项目";
+    public String getJenkinsTest(@RequestBody String requestJson){
+        String producerDemoData = producerDemoService.getProducerDemoData(requestJson);
+        return producerDemoData;
     }
 }

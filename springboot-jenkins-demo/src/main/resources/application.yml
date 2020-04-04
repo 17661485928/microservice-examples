@@ -1,3 +1,31 @@
 ##设置端口
 server:
   port: 8085
+  ip: 127.0.0.1
+spring:
+  ###应用的服务名称
+  application:
+    name: springboot-jenkins-demo
+eureka:
+  client:
+    service-url:
+      #将其该服务注册到注册中心中去
+      defaultZone: http://211.159.177.156:8081/eureka/
+  instance:
+    #eureka主机名，会在控制页面中显示
+    #hostname: localhost
+    #eureka服务器页面中status的请求路径
+    status-page-url-path: http://${server.ip}:${server.port}/consumer/TestConsumerControllerApi/queryConsumer
+feign:
+  # 是否启用httpclient
+  httpclient:
+    enabled: false
+    # 请求连接超时时间（毫秒）
+    onnection-timeout: 3000
+  # 是否启用httpok（性能比httpclient高）
+  okhttp:
+    enabled: true
+  # 是否启用hystrix
+  hystrix:
+    enabled: true
+
