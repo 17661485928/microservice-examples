@@ -11,7 +11,7 @@ eureka:
   client:
     service-url:
       #将其该服务注册到注册中心中去
-      defaultZone: http://127.0.0.1:8081/eureka/
+      defaultZone: http://211.159.177.156:8081/eureka/
   instance:
     #eureka主机名，会在控制页面中显示
     #hostname: localhost
