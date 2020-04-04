@@ -1,0 +1,19 @@
+##端口设置
+server:
+  port: 8082
+  ip: 127.0.0.1
+spring:
+  ###应用的服务名称
+  application:
+    name: springboot-producer-demo
+#####eureka服务注册地址
+eureka:
+  client:
+    service-url:
+      #将其该服务注册到注册中心中去
+      defaultZone: http://127.0.0.1:8081/eureka/
+  instance:
+    #eureka主机名，会在控制页面中显示
+    #hostname: localhost
+    #eureka服务器页面中status的请求路径
+    status-page-url-path: http://${server.ip}:${server.port}/producer/TestProducerControllerApi/queryProducer
